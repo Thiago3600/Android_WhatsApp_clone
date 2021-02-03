@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Whatsapp_Clone</string>
+
+    <!-- Strings do menu -->
+    <string name="Menu_pesquisa">Pesquisar</string>
+    <string name="Menu_config">Configuracoes</string>
+    <string name="Menu_sair">Sair</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="abaConversa">Conversa</string>
+    <string name="abaContato">Contato</string>
+
+    <!-- Strings do Config -->
+    <string name="ConfigAviso">Esse nao e o seu nome de usuario nem sua senha, Esse nome ficara visivel para seus contatos do WhatsApp</string>
+    <string name="remover_foto">Remover</string>
+    <string name="galeria">Galeria</string>
+    <string name="camera">Camera</string>
+    <string name="foto_de_perfil">Foto de Perfil</string>
+    <string name="imagem_de_perfil">Foto de perfil</string>
+
+
+</resources>

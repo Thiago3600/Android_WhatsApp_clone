@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_Whats"
+    tools:context=".activity.LoginActivity">
+
+
+    <ImageView
+        android:id="@+id/imageViewLoginLogo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@+id/TextInputLayoutLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/logo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextInputLayoutLogin"
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+
+
+        android:background="@android:color/transparent"
+        app:hintTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintBottom_toTopOf="@+id/TextInputLayoutSenha"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLoginLogo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextInputEditTextLoginEmail"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green_dark_Whats"
+            android:hint="Digite seu email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextInputLayoutSenha"
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:background="@android:color/transparent"
+        app:hintTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
+        app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutLogin">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextInputEditTextLoginSenha"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green_dark_Whats"
+            android:hint="Digite sua senha"
+
+            android:inputType="numberPassword"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="LOGAR"
+        android:textColor="@color/white"
+        android:onClick="autenticacaoUsuario"
+        app:layout_constraintBottom_toTopOf="@+id/textViewLoginCadastrese"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutSenha" />
+
+    <TextView
+        android:id="@+id/textViewLoginCadastrese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Nao tem conta? Cadastre-se"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:onClick="novoUsuario"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

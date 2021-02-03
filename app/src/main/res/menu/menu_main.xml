@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menuMain"
+        android:title="@string/Menu_pesquisa"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_baseline_search_branco_24"/>
+
+    <item android:id="@+id/menuConfig"
+        android:title="@string/Menu_config"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/menuSair"
+        android:title="@string/Menu_sair"
+        app:showAsAction="never" />
+
+</menu>
