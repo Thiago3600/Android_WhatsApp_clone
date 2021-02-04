@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="8dp"
+    android:paddingVertical="3dp"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageViewPerfilContato"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/padrao"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewNomeContato"
+            android:text="Nome do contato"
+            android:textStyle="bold"
+            android:textSize="14sp"
+
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/textViewEmailContato"
+            android:text="Email do contato"
+            android:textStyle="normal"
+            android:textColor="@android:color/darker_gray"
+
+            android:textSize="10sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -2,13 +2,25 @@ package com.example.whatsapp_clone.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.whatsapp_clone.R;
+import com.example.whatsapp_clone.adapter.AdapterContatos;
+import com.example.whatsapp_clone.helper.ConfiguracaoFirebase;
+import com.example.whatsapp_clone.model.Usuario;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,8 +37,14 @@ public class ContatoFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private DatabaseReference usuariosRef;
+    private ValueEventListener valueEventListenerContatos;
+    private RecyclerView recyclerView;
+    private AdapterContatos adapter;
+    private ArrayList<Usuario> listaContatos = new ArrayList<>();
 
     public ContatoFragment() {
+
         // Required empty public constructor
     }
 
@@ -45,6 +63,9 @@ public class ContatoFragment extends Fragment {
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+
+
+
         return fragment;
     }
 
@@ -55,12 +76,59 @@ public class ContatoFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contato, container, false);
+        View view = inflater.inflate(R.layout.fragment_contato, container, false);
+
+        recyclerView = view.findViewById(R.id.reciclerViewContatos);
+        usuariosRef = ConfiguracaoFirebase.getFirebaseDatabase().child("usuarios");
+
+        adapter = new AdapterContatos(listaContatos, getActivity());
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager( getActivity() );
+        recyclerView.setLayoutManager(layoutManager);
+
+        recyclerView.setAdapter(adapter);
+
+        recyclerView.setHasFixedSize(true);
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        recuperarContatos();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        usuariosRef.removeEventListener(valueEventListenerContatos);
+    }
+
+    public void recuperarContatos(){
+
+        valueEventListenerContatos = usuariosRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot data: snapshot.getChildren()){
+                    Usuario usuario = data.getValue(Usuario.class);
+
+                    listaContatos.add(usuario);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 }

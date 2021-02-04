@@ -5,12 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".fragment.ContatoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reciclerViewContatos"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Contato"
-        android:textSize="24sp"
-        android:gravity="center"/>
-
+        android:layout_height="match_parent" />
 </FrameLayout>

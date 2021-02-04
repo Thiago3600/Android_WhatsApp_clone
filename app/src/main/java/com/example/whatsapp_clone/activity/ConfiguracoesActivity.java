@@ -144,18 +144,13 @@ public class ConfiguracoesActivity extends AppCompatActivity {
 
     public void alterarNome(View view) {
 
-
         String nome = inputEditTextNomeUsuario.getText().toString();
-        String idUser = UsuarioFirebase.getIdCurrentUser();
-        DatabaseReference database = ConfiguracaoFirebase.getFirebaseDatabase();
-
 
         if (!nome.isEmpty()){
             if (UsuarioFirebase.atualizaNomeUsuario(nome)){
 
                 usuarioLogado.setNome(nome);
                 usuarioLogado.atualizar();
-                //database.child("Usuario").child(idUser).child("nome").setValue(nome);
                 Toast.makeText(this, "Nome alterado", Toast.LENGTH_SHORT).show();
             }
 
